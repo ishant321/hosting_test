@@ -1,0 +1,300 @@
+*{
+    background-color: #3AAFA9;
+    margin: 0;
+    padding: 0;
+    font-family: "Trirong", serif;
+    letter-spacing: 1px;
+    color: white;
+}
+
+/* --------------- GENERAL ----------------- */
+
+.btn{
+    background-color: #17252A;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 5px;
+    width: 130px;
+    height: 40px;
+    font-size: 1.1em;
+}
+
+
+.bg{
+    height: 700px;
+    width: 99%;
+    background-color: #222233;
+    margin: auto;
+}
+input::placeholder{
+    margin: auto;
+    color: black;
+    font-weight: 900;
+}
+
+/* ------------------------------------------ */
+
+.header{
+    width: 99%;
+    height: 60px;
+    background-color: #2B7A78;
+    margin: 7px auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.header form{
+    background-color: transparent;
+    margin: auto auto auto 10px;
+    border-radius: 30px;
+}
+
+.header h1{
+    margin-right: auto;
+    margin-left: -140px;
+    color: #FEFFFF;
+}
+
+.footer{
+    width: 99%;
+    height: 160px;
+    background-color: rgb(0, 102, 111);
+    margin: 7px auto;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+.header h1{
+    background-color: transparent;
+    font-size: 2.3rem;
+    letter-spacing: 5px;
+}
+
+.main{
+    width: 99%;
+    height: 700px;
+    background-color: #2B7A78;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.rem-ques div{
+    margin: 7px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+}
+.rem-ques{
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    margin: 5px auto;
+    width: 80%;
+}
+
+.add-form{
+    margin: 250px auto;
+    width: 50%;
+    height: 20%;
+    padding: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.add-form input{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 15px;
+    width: 80%;
+    height: 30%;
+    color: black;
+    outline: none;
+    font-size: 1.2em;
+    padding-left: 10px;
+    font-weight: 700;
+}
+.add-form button{
+    margin-top: 5px;
+    position: relative;
+    left: 0;
+}
+
+
+.menu{
+    height: 7%;
+    width: 80%;
+    margin: 8px auto;
+    border: 2px solid white;
+    vertical-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu form{
+    margin: 5px;
+}
+
+.topic{
+    width: 60%;
+    height: fit-content;
+    background-color: transparent;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.topic form,h3{
+    background-color: transparent;
+}
+
+.topic button{
+    width: 400px;
+    height: 40px;
+    margin: 10px;
+    border: none;
+    border-radius: 30px;
+    color: #FEFFFF;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.rem-top{
+    display: flex;
+    flex-direction: row;
+}
+
+.topic-title{
+    border: 2px solid white;
+    width: 80%;
+    height: 7%;
+    margin-bottom: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: row;
+}
+
+.topic-title h2{
+    font-size: 1.7em;
+    background-color: transparent;
+}
+
+.topic-title form{
+    margin: auto;
+}
+
+.main table{
+    border-collapse: collapse;
+    width: 85%;
+    margin: 10px auto;
+    color: black;
+}
+
+.main th{
+    font-size: 1.3em;
+    letter-spacing: 2px;
+    height: 60px;
+    color: #17252A;
+}
+
+.main th div{
+    font-size: 1.3em;
+    color: #17252A;
+}
+
+.main td{
+    margin: auto;
+    overflow-x: hidden;
+    height: 40px;
+    white-space: nowrap;
+    text-align: center;
+    color: #17252A;
+    font-weight: 1000;
+}
+
+.main td div a{
+    color: #17252A;
+}
+
+.main table th,td{
+    border: 7px solid #2B7A78;
+}
+
+.addquestion{
+    border-radius: 10px;
+    width: 60%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 120px auto;
+    background-color: transparent;
+}
+
+.addquestion input{
+    margin: 10px;
+    width: 70%;
+    height: 45px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    color: black;
+    font-weight: 700;
+    padding-left: 10px;
+    font-size: 1.2em;
+    outline: none;
+}
+
+::placeholder{
+    padding-left: 10px;
+    opacity: 70%;
+}
+
+.addquestion button{
+    margin: auto;
+}
+
+/* ------------home page------------ */
+.mid{
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    height: 100%;
+}
+
+.left{
+    width: 40%;
+    background-color: transparent;
+}
+
+.potd{
+    display: flex;
+    border: 3px solid black;
+    width: 30%;
+    height: 20px;
+    padding: 30px;
+    margin: 60px auto; 
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.right{
+    width: 40%;
+    background-color: transparent;
+}
+
+

@@ -1,0 +1,14 @@
+<%- include("partials/header.ejs") %> 
+
+    <div class="main">
+        <div class="topic-title">
+            <h2 style="color: black"><%= _.upperCase(topicname) %></h2>
+        </div>
+        <form class="addquestion" action="/newquestion" method="post">
+            <input type="text" placeholder="Enter question name" name="questionName">
+            <input type="text" placeholder="Enter the question link" name="questionLink">
+            <button name="nqb" value="<%= topicname%>" class="btn">Add</button>
+        </form>
+    </div>
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,41 @@
+<%- include("partials/header.ejs") %> 
+
+
+<div class="main">
+    <div class="menu topic-title">
+        <form action="/addtopic" method="get">
+            <button class="btn">ADD</button>
+        </form>
+        <h2>TOPIC NAMES (<%= t.length %>)</h2>
+        <form action="/removetopic" method="get">
+            <button class="btn">REMOVE</button>
+        </form>
+    </div>
+    <div class="mid">
+        <div class="left">
+            <%
+                const l1 = t.length;
+                const l2 = t.cont 
+            %>
+            <a href="<%= randomQuestion %>" class="potd">POTD</a>
+        </div>
+        <div class="topic">
+            <% t.forEach(function(item){ %>
+
+                <h3>
+                    <form action="/topicwiselist/<%= (item.name) %>" method="get">
+                        <button><%= _.capitalize(item.name) %> (<%= item.content.length%>)</button>
+                    </form>
+                </h3>   
+
+            <% }); %>
+        </div>
+        <div class="right">
+
+        </div>
+    </div>
+    <div class="resources"></div>
+</div>
+
+
+<%- include("partials/footer.ejs") %>

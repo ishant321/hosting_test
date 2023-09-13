@@ -1,0 +1,10 @@
+<%- include("partials/header.ejs") %> 
+
+<div class="main">
+    <form class="add-form" action="/addnewtopic" method="post">
+        <input class="addtopic" type="text" name="topicName" placeholder="Enter new topic name">
+        <button class="btn">add</button>
+    </form>
+</div>
+
+<%- include("partials/footer.ejs") %>

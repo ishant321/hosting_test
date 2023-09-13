@@ -1,0 +1,22 @@
+<%- include("partials/header.ejs") %> 
+
+<div class="main">
+    <div class="topic-title">
+        <h2>TOPIC NAMES</h2>
+    </div>
+    <div class="topic">
+        <% t.forEach(function(item){ %>
+
+            <h3 class="rem-top">
+                <button><%= _.capitalize(item.name) %></button>
+                <form action="/remove" method="post" class="rem-top">
+                    <button class="btn" style="width: 50px" name="rembtn" value="<%= item.name %>"">-</button>
+                </form>
+            </h3>
+
+        <% }); %>
+    </div>
+</div>
+
+
+<%- include("partials/footer.ejs") %>
