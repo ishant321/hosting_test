@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static("public"));
 
 
-mongoose.connect('mongodb://127.0.0.1:27017/dsaDB').then(() => console.log('Connected!'));
+mongoose.connect('mongodb+srv://ishant:mongodbatlas@cluster0.qho5cx4.mongodb.net/dsaDB').then(() => console.log('Connected!'));
 const dsaSchema = new mongoose.Schema({
     name: String,
     content: [{
@@ -25,22 +25,8 @@ const dsaModel = new mongoose.model("dsamodel", dsaSchema);
 
 app.get("/", async (req, res)=>{
     const t = await dsaModel.find().exec();
-    const len = await dsaModel.count().exec();
-    var random;
-    var randomTopic;
-    while(1){
-        random = Math.floor(Math.random() * len);
-        randomTopic = await dsaModel.findOne().skip(random).exec();
-        if(randomTopic.content.length > 0){
-            break;
-        }
-    }
-
-    var len2 = randomTopic.content.length;
-    var random2 = Math.floor(Math.random() * len2);
     res.render("home",{
-        t: t,
-        randomQuestion: randomTopic.content[random2].link
+        t: t
     }); 
 });
 
