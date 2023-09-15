@@ -34,6 +34,219 @@ input::placeholder{
 
 /* ------------------------------------------ */
 
+/* --------------- COMMON HOME ----------------- */
+
+.common-home-left{
+    width: 55%;
+    margin: 3px 13px 3px 3px;
+    background-color: #3AAFA9;
+    border-radius: 0px 100% 100% 0px;
+    display: flex;
+    justify-content:left;
+    /* background-image: radial-gradient(triangle at 38px 40px, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 40px, #3AAFA9 40px); */
+}
+
+.logo-text{
+    width: 98%;
+    height: 80%;
+    background-color: transparent;
+    margin: 70px 0px 0px 0px;
+    transition: all 0.3s 0s ease;
+}
+
+.logo-text h1{
+    font-size: 12em;
+    background-color: transparent;
+    letter-spacing: 15px;
+    font-family: Geneva, sans-serif;
+    -webkit-text-stroke-width: 10px;
+    color: transparent;
+    -webkit-text-stroke-color: #47d5ce;
+    height: 35%;
+}
+
+.logo-text:hover{
+    text-shadow: 0 0 6px #3AAFA9, 0 0 13px #3AAFA9, 0 0 1px #3AAFA9, 0 0 27px #3AAFA9, 0 0 18px #0fa, 0 0 7px #0fa, 0 0 6px #0fa;
+}
+
+.logo-text h2{
+    font-size: 2.3em;
+    letter-spacing: 32px;
+    font-weight: 950;
+    width: 100%;
+    text-align: center;
+    background-color: transparent;
+    color: #47d5ce;
+}
+
+.about-it{
+    background-color: transparent;
+    border-top: 2px solid #47d5ce;
+}
+
+.about-it p{
+    background-color: transparent;
+    color:#47d5ce;
+    padding: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1em;
+}
+
+.common-home-right{
+    width: 45%;
+    margin: 3px;
+    border-radius: 40px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.common-home-right form, input, button{
+    background-color: transparent;
+}
+
+.common-home-right input, button{
+    color: black;
+}
+
+.local {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 80px auto auto auto;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.open{
+    display: flex;
+    flex-direction: column;
+    margin: -20px auto;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    width: 70%;
+}
+
+
+
+.local input{
+    border: none;
+    outline: none;
+    width: 90%;
+    height: 60px;
+    border-bottom: 3px solid black;
+    margin: 30px auto;
+    background-color: rgba(222, 242, 241, 0.3);
+    font-size: 1.2em;
+}
+
+.local h2{
+    background-color: transparent;
+    color: black;   
+}
+
+.local button{
+    width: 70%;
+    margin: 20px auto;
+    background-color: #44cfc8;
+    color: black;
+    border: 0.3px solid black;
+    font-weight: 700;
+}
+
+.open h3{
+    color: black;
+    margin: auto auto 10px auto;
+    font-size: .9em;
+    margin: 5% auto 5% auto;
+}
+
+.open form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.open form button{
+    width: 75%;
+    border-radius: 0px 4px 4px 0px;
+    border: none;
+    font-weight: 600;
+    font-size: 1.05em;
+    height: 40px;
+}
+
+.icon-button{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+
+#icons{
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    margin: 5px 5px;
+}
+
+/* ------------------------------------------------ */
+
+/* ------------------ FEATURE SECTION ----------------- */
+
+.main-feature-section{
+    width: 99%;
+    height: 1000px;
+    background-color: #2B7A78;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.features{
+    width: 70%;
+    height: 30%;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: transparent;
+    transition: all 0.2s 0s ease;
+}
+
+.features:hover{
+    /* box-shadow: 0 3px 10px rgb(0 0 0 / 0.2); */
+    font-size: 1.1em;
+}
+
+.feature-title{
+    font-size: 1.9em;
+    width: fit-content;
+    margin: auto;
+    background-color: transparent;
+    font-weight: 700;
+}
+
+.feature-title:first-letter{
+    color: #3AAFA9;
+  }
+
+.feature-content{
+    background-color: transparent;
+    text-align: center;
+}
+
+ li{
+    background-color: transparent;
+}
+
+/* ------------------------------------------------------- */
+
 .header{
     width: 99%;
     height: 60px;
@@ -272,6 +485,7 @@ input::placeholder{
     flex-direction: row;
     background-color: transparent;
     height: 100%;
+    margin: 20px auto;
 }
 
 .left{
@@ -297,4 +511,6 @@ input::placeholder{
     background-color: transparent;
 }
 
-
+.neonText {
+    text-shadow: 0 0 6px #3AAFA9, 0 0 13px #3AAFA9, 0 0 1px #3AAFA9, 0 0 27px #3AAFA9, 0 0 18px #3AAFA9, 0 0 7px #3AAFA9, 0 0 6px #0fa;
+}

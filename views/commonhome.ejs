@@ -1,0 +1,70 @@
+<%- include("partials/header.ejs") %> 
+
+
+<div class="main" style="height: 900px">
+    <div class="mid" style="width: 96%; height:100%;">
+        <div class="common-home-left">
+            <div class="common-home-left" style="border-radius: 10% 100% 100% 10%; width: 70%; height: 70%; background-color: #2B7A78; margin: 18% auto">
+                <div class="logo-text">
+                    <h1>DSA</h1>
+                    <h2>organizer</h2>
+                    <div class="about-it"><p>The one place where you can add your all dsa questions with their names and links and can categorize into differnt topic to practice in a better customised and organized way.
+                    </p></div>
+                </div>
+            </div>
+        </div>
+        <div class="common-home-right">
+            <form action="/register" method="post" style="background-color: transparent;">
+                <div class="local">
+                    <h2>Sign Up</h2>
+                    <input type="text" name="name" placeholder="Name*" required>
+                    <input type="email" name="username" placeholder="Email*" required>
+                    <input type="password" name="password" placeholder="Password*" required>
+                    <button class="btn" type="submit">Create your account</button>
+                </div>
+            </form>
+            <div class="open">
+                <form action="/auth/google" method="get">
+                    <h3>or</h3>
+                    <div class="icon-button" style="background-color: red;">
+                    <image style="border-right: 1px solid black;" id="icons" src="/images/google.png" alt=" "></image>
+                    <button style="background-color: red;">Sign up with google</button>
+                    </div>
+                </form>
+                <form action="/auth/github" method="get">
+                    <h3>or</h3>
+                    <div class="icon-button" style="background-color: black;">
+                    <image style="border-right: 1px solid white;" id="icons" src="/images/git.png" alt=" "></image>
+                    <button style="background-color: black; color: white;">Sign up with github</button>
+                    </div>
+                </form>
+                    <form action="/auth/local">
+                        <button style="background-color: transparent; border: none; margin-top: 30px;">sign in</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-feature-section">
+    <div class="features">
+        <div class="feature-title">feature one</div>
+        <p class="feature-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut molestiae voluptatibus officia sapiente fugit ex omnis quos dolorum voluptate aperiam.</p>
+    </div>
+    <div class="features">
+        <div class="feature-title">feature one</div>
+        <p class="feature-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis aliquid voluptatum optio placeat, at ut neque excepturi adipisci magnam dolores.</p>
+    </div>
+    <div class="features">
+        <div class="feature-title">features adding soon</div>
+        <p class="feature-content">
+            <ul style="background-color: transparent;">
+                <li>best resources for little important concepts</li>
+                <li>complete dsa study plan(only need theory like notes(pointwise))</li>
+                <li>practice questions set topicwise easy, medium and hard</li>
+            </ul>
+        </p>
+    </div>
+</div>
+
+<%- include("partials/footer.ejs") %>

@@ -3,11 +3,11 @@
     <div class="main">
         <div class="topic-title">
             <form action="/addquestion" method="post">
-                <button name="addq" value="<%= topicname.name %>" class="btn">Add</button>
+                <button name="addq" value="<%= topicData.topicname %>" class="btn">Add</button>
             </form>
-            <h2><%= _.upperCase(topicname.name) %> (<%= topicname.content.length%>)</h2>
+            <h2><%= _.upperCase(topicData.topicname) %> (<%= topicData.content.length%>)</h2>
             <form action="/removequestion" method="post">
-                <button name="removeq" value="<%= topicname.name %>" class="btn">Remove</button>
+                <button name="rqb" value="<%= topicData.topicname %>" class="btn">Remove</button>
             </form>
             </div>
         <table>
@@ -16,7 +16,7 @@
                 <th style="width: 80%;">q name</th>
                 <th style="width: 10%; border-radius: 0px 30px 0px 30px;"><div style=" width: 400px; float: right; overflow: hidden;">link</div></th>
             </tr>
-            <% content.forEach(function(item){ %>
+            <% topicData.content.forEach(function(item){ %>
                 <tr>
                     <td style="border-radius: 30px 0px 0px 30px;"><%= i %><% i++ %></td>
                     <td><%= item.qname %></td>

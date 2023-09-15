@@ -2,11 +2,11 @@
 
     <div class="main">
         <div class="topic-title">
-        <h2 style="color: black"><%= _.capitalize(topicName.name) %></h2>
+        <h2 style="color: black"><%= _.capitalize(topicData.topicname) %></h2>
         </div>
         <form action="/deletequestion" method="post" style="width: 65%; margin:10px auto; background-color: transparent;">
-            <input type="text" style="visibility: hidden;" name="tname" value="<%= topicName.name %>"></input>
-            <% topicName.content.forEach(function(item){ %>
+            <input type="text" style="visibility: hidden;" name="rqi" value="<%= topicData.topicname %>"></input>
+            <% topicData.content.forEach(function(item){ %>
                 <div class="rem-ques">
                     <div style="width: 10%"><%= i %><% i++ %></div>
                     <div style="width: 70%;"><%= item.qname %></div>
