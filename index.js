@@ -229,21 +229,18 @@ app.post("/logout", (req, res) => {
 
 
 //----------------- HOME ROUTES ---------------------------
-// app.get("/", async (req, res)=>{
-//     if(req.isAuthenticated()){
-//         res.redirect("/userhome");
-//     }
-//     else{
-//         res.render("commonhome",{
-//             text: "",
-//             message: req.flash("info")
-//         });
-//     }
-// });
+app.get("/", async (req, res)=>{
+    if(req.isAuthenticated()){
+        res.redirect("/userhome");
+    }
+    else{
+        res.render("commonhome",{
+            text: "",
+            message: req.flash("info")
+        });
+    }
+});
 
-app.get("/", (req, res) => {
-    res.send("working");
-})
 
 app.get("/userhome", async (req, res)=>{
     if(req.isAuthenticated()){
