@@ -230,7 +230,6 @@ app.post("/logout", (req, res) => {
 
 //----------------- HOME ROUTES ---------------------------
 app.get("/", async (req, res)=>{
-    res.send("working");
     if(req.isAuthenticated()){
         res.redirect("/userhome");
     }
