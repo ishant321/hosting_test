@@ -242,7 +242,7 @@ app.post("/logout", (req, res) => {
 // });
 
 app.get("/", (req, res) => {
-    res.render("commonhome");
+    res.send("working");
 })
 
 app.get("/userhome", async (req, res)=>{
