@@ -15,8 +15,6 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const findorcreate = require("mongoose-findorcreate");
 const session = require("express-session");
-const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const GitHubStrategy = require("passport-github2").Strategy;
 const flash = require("connect-flash");
 require("dotenv").config();
 //---------------------------------------------------------
@@ -61,8 +59,6 @@ const userSchema = new mongoose.Schema({
     name: String,
     email: String,
     password: String,
-    googleid: String,
-    githubid: String,
     data: [topicSchema]
 });
 
@@ -89,64 +85,6 @@ passport.serializeUser(function(user, cb) {
   });
 //----------------------------------------------------------
 
-
-
-
-//----------------- GOOGLE STRATEGY -----------------------
-
-passport.use(new GoogleStrategy({
-    clientID: process.env.GOOGLE_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/userhome"
-  },
-  function(accessToken, refreshToken, email, cb) {
-    userModel.findOrCreate({ email : email._json.email, googleid: email.id, name: email.displayName}, function (err, user) {
-      return cb(err, user);
-    });
-  }
-));
-
-app.get("/auth/google",
-  passport.authenticate("google", { scope: ["profile", "email"] }));
-
-app.get("/auth/google/userhome", 
-  passport.authenticate("google", { failureRedirect: "/commonhome" }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect("/");
-  });
-//----------------------------------------------------------
-
-
-
-
-
-//---------------- GITHUB STRATEGY ------------------------
-
-passport.use(new GitHubStrategy({
-    clientID: process.env.GITHUB_CLIENT_ID,
-    clientSecret: process.env.GITHUB_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/github/userhome"
-  },
-  function(accessToken, refreshToken, profile, done) {
-    userModel.findOrCreate({ name: profile.displayName, githubid: profile.id }, function (err, user) {
-    //   console.log(profile);
-      return done(err, user);
-    });
-  }
-));
-
-app.get("/auth/github",
-  passport.authenticate("github", { scope: [ "user:email" ] }));
-
-app.get("/auth/github/userhome", 
-  passport.authenticate("github", { failureRedirect: "/commonhome" }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect("/");
-  });
-
-//---------------------------------------------------------
 
 
 
@@ -243,14 +181,7 @@ app.post("/reset", async (req,res) => {
 
 app.post("/changepassword", async (req, res) => {
     if(req.isAuthenticated()){
-        const curUser = await userModel.findById(req.user.id).exec();
-        if(curUser.googleid || curUser.githubid){
-            req.flash("info", "You are authenticated by google or github");
-            res.redirect("/");
-        }
-        else{
             res.render("auth/changepassword", { message: req.flash("info") });
-        }
     }
     else{
         res.redirect("/login");
