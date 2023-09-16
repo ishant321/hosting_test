@@ -230,15 +230,19 @@ app.post("/logout", (req, res) => {
 
 //----------------- HOME ROUTES ---------------------------
 app.get("/", async (req, res)=>{
-    if(req.isAuthenticated()){
-        res.redirect("/userhome");
-    }
-    else{
-        res.render("commonhome",{
-            text: "",
-            message: req.flash("info")
-        });
-    }
+    // if(req.isAuthenticated()){
+    //     res.redirect("/userhome");
+    // }
+    // else{
+    //     res.render("commonhome",{
+    //         text: "",
+    //         message: req.flash("info")
+    //     });
+    // }
+    res.render("commonhome",{
+                text: "",
+                message: req.flash("info")
+            });
 });
 
 
