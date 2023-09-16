@@ -49,7 +49,7 @@ app.use(passport.session());
 
 
 //------------- DATABASE CONNECTIONS ------------------------
-mongoose.connect("mongodb://127.0.0.1:27017/dsauserDB").then(() => console.log("Connected!"));
+mongoose.connect("mongodb+srv://ishant:mongodbatlas@cluster0.qho5cx4.mongodb.net/dsauserDB").then(() => console.log("Connected!"));
 
 const topicSchema = new mongoose.Schema({
     topicname: String,
