@@ -4,15 +4,15 @@
     <div class="topic-title">
         <h2>TOPIC NAMES</h2>
     </div>
-    <div class="topic">
+    <div class="rem-topic-mid">
         <% t.forEach(function(item){ %>
 
-            <h3 class="rem-top">
-                <button style="background-color: #3AAFA9;"><%= _.capitalize(item.topicname) %></button>
+            <div class="rem-topiclist">
+                <div style="background-color: #3AAFA9;"><%= _.capitalize(item.topicname) %></div>
                 <form action="/remove" method="post" class="rem-top">
                     <button class="btn" style="width: 50px;" name="rembtn" value="<%= item.topicname %>"">-</button>
                 </form>
-            </h3>
+            </div>
 
         <% }); %>
     </div>

@@ -14,9 +14,10 @@
     color: rgb(255, 255, 255);
     border: none;
     border-radius: 5px;
-    width: 130px;
+    width: 150%;
     height: 40px;
-    font-size: 1.1em;
+    font-size: calc(0.1vw + 3.2vmin);
+    height: calc(1.2vw  + 4.7vmin);
 }
 
 
@@ -32,51 +33,127 @@ input::placeholder{
     font-weight: 900;
 }
 
+.flash{
+    background-color: transparent;
+    align-items: center;    
+}
+
 /* ------------------------------------------ */
+
+/* --------------- HEADER & FOOTER ---------------- */
+
+.header{
+    width: 99%;
+    height: calc(1vw + 3vh + 6vmin);
+    background-color: #2B7A78;
+    margin: 7px auto ;
+    display: flex;
+    flex-direction: row;
+}
+
+.header form{
+    background-color: transparent;
+    margin: auto auto auto 10px;
+    border-radius: 30px;
+}
+
+.header h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    background-color: transparent;
+    font-size: calc(2vw + 2vmin);
+    letter-spacing: 5px;
+    -webkit-text-stroke-width: 1px;
+    color: 3AAFA9;
+    -webkit-text-stroke-color: white;
+}
+
+
+.footer{
+    width: 99%;
+    height: 160px;
+    background-color: rgb(0, 102, 111);
+    margin: 7px auto;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+
+/* ------------------------------------------------ */
+
 
 /* --------------- COMMON HOME ----------------- */
 
+/* ---------- COMMON HOME LEFT -------------- */
+.mid{
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+    height: fit-content;
+    margin: 20px auto;
+    min-height: 100px;
+    overflow: hidden;
+}
+
 .common-home-left{
     width: 55%;
-    margin: 3px 13px 3px 3px;
+    margin: 1% 1% 1% 1%;
     background-color: #3AAFA9;
     border-radius: 0px 100% 100% 0px;
     display: flex;
     justify-content:left;
-    /* background-image: radial-gradient(triangle at 38px 40px, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 40px, #3AAFA9 40px); */
+    min-height: 100px;
+    overflow: hidden;
+}
+.common-home-left-inner{
+    border-radius: 10% 100% 100% 10%; 
+    width: 70%;
+    height: 70%; 
+    background-color: #2B7A78; 
+    margin: 18% auto;
+    display: flex;
+    justify-content:left;
+    min-height: 100px;
+    overflow: hidden;
 }
 
 .logo-text{
     width: 98%;
     height: 80%;
     background-color: transparent;
-    margin: 70px 0px 0px 0px;
+    margin: auto;
     transition: all 0.3s 0s ease;
 }
 
 .logo-text h1{
-    font-size: 12em;
+    font-size: calc(11vw + 5vmin);
     background-color: transparent;
     letter-spacing: 15px;
     font-family: Geneva, sans-serif;
-    -webkit-text-stroke-width: 10px;
+    -webkit-text-stroke-width: calc(0.7vw + 0.3vmin);
     color: transparent;
     -webkit-text-stroke-color: #47d5ce;
-    height: 35%;
+    padding-bottom: 0;
+    display: flex;
+    justify-content: center;
 }
 
 .logo-text:hover{
-    text-shadow: 0 0 6px #3AAFA9, 0 0 13px #3AAFA9, 0 0 1px #3AAFA9, 0 0 27px #3AAFA9, 0 0 18px #0fa, 0 0 7px #0fa, 0 0 6px #0fa;
+    text-shadow: 0 0 6px #3AAFA9, 0 0 13px #3AAFA9, 0 0 1px #3AAFA9, 0 0 17px #3AAFA9, 0 0 9px #0fa, 0 0 7px #0fa, 0 0 6px #0fa;
 }
 
 .logo-text h2{
-    font-size: 2.3em;
-    letter-spacing: 32px;
+    font-size: calc(2.2vw + 1vmin);
+    letter-spacing: calc(1.8vw + 1.4vmin);
     font-weight: 950;
-    width: 100%;
-    text-align: center;
     background-color: transparent;
+    display: flex;
+    justify-content: center;
     color: #47d5ce;
+    margin-top: -6%;
 }
 
 .about-it{
@@ -89,16 +166,23 @@ input::placeholder{
     color:#47d5ce;
     padding: 10px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 1em;
+    /* font-size: 1em; */
+    font-size: calc(1vw + 0.4vmin);
 }
 
+/* ------------ COMMON HOME LEFT END ------------------- */
+
+/* -------------- COMMON HOME RIGHT ----------------------- */
 .common-home-right{
-    width: 45%;
-    margin: 3px;
+    width: 43%;
     border-radius: 40px;
+    margin: 3px;
     background-color: white;
     display: flex;
     flex-direction: column;
+    min-height: 100px;
+    overflow: hidden;
+    padding: 3%;
 }
 
 .common-home-right form, input, button{
@@ -113,23 +197,13 @@ input::placeholder{
     display: flex;
     flex-direction: column;
     width: 70%;
-    margin: 80px auto auto auto;
+    margin: 30px auto auto auto;
     align-items: center;
     justify-content: center;
     background-color: transparent;
+    min-height: 100px;
+    overflow: hidden;
 }
-
-.open{
-    display: flex;
-    flex-direction: column;
-    margin: -20px auto;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    width: 70%;
-}
-
-
 
 .local input{
     border: none;
@@ -137,7 +211,7 @@ input::placeholder{
     width: 90%;
     height: 60px;
     border-bottom: 3px solid black;
-    margin: 30px auto;
+    margin: 8% auto;
     background-color: rgba(222, 242, 241, 0.3);
     font-size: 1.2em;
 }
@@ -149,11 +223,23 @@ input::placeholder{
 
 .local button{
     width: 70%;
-    margin: 20px auto;
+    margin: auto;
     background-color: #44cfc8;
     color: black;
     border: 0.3px solid black;
     font-weight: 700;
+}
+
+.open{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    width: 70%;
+    min-height: 100px;
+    overflow: hidden;
 }
 
 .open h3{
@@ -177,7 +263,6 @@ input::placeholder{
     border: none;
     font-weight: 600;
     font-size: 1.05em;
-    height: 40px;
 }
 
 .icon-button{
@@ -197,13 +282,13 @@ input::placeholder{
     margin: 5px 5px;
 }
 
-/* ------------------------------------------------ */
+/* ----------------- COMMON HOME END ------------------ */
 
 /* ------------------ FEATURE SECTION ----------------- */
 
 .main-feature-section{
     width: 99%;
-    height: 1000px;
+    height: fit-content;
     background-color: #2B7A78;
     margin: 10px auto;
     display: flex;
@@ -247,51 +332,17 @@ input::placeholder{
 
 /* ------------------------------------------------------- */
 
-.header{
-    width: 99%;
-    height: 60px;
-    background-color: #2B7A78;
-    margin: 7px auto;
-    display: flex;
-    flex-direction: row;
-}
-
-.header form{
-    background-color: transparent;
-    margin: auto auto auto 10px;
-    border-radius: 30px;
-}
-
-.header h1{
-    margin-right: auto;
-    margin-left: -140px;
-    color: #FEFFFF;
-}
-
-.footer{
-    width: 99%;
-    height: 160px;
-    background-color: rgb(0, 102, 111);
-    margin: 7px auto;
-    display: flex;
-    align-items: end;
-    justify-content: center;
-}
-
-.header h1{
-    background-color: transparent;
-    font-size: 2.3rem;
-    letter-spacing: 5px;
-}
-
 .main{
     width: 99%;
-    height: 700px;
     background-color: #2B7A78;
     margin: auto;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
 }
+
+/* --------- REMOVE QUESTION --------- */
 
 .rem-ques div{
     margin: 7px auto;
@@ -307,7 +358,18 @@ input::placeholder{
     flex-direction: row;
     margin: 5px auto;
     width: 80%;
+    font-size: calc(1vw + 1vh + 1vmin);
+    min-width: 200px;
+    overflow-x: scroll;
 }
+
+.rem-question button{
+    font-size: calc(1vw + 1vh + 1vmin);
+}
+
+/* ---------- REMOVE QUESTION END ---------- */
+
+/* ----------- ADD TOPICS --------------- */
 
 .add-form{
     margin: 250px auto;
@@ -329,88 +391,58 @@ input::placeholder{
     height: 30%;
     color: black;
     outline: none;
-    font-size: 1.2em;
-    padding-left: 10px;
+    font-size: calc(1vw + 1vh + 0.5vmin);
+    padding-left: 0.1%;
     font-weight: 700;
 }
 .add-form button{
-    margin-top: 5px;
-    position: relative;
-    left: 0;
+    margin-top: 10px;
+    width: calc(4vw + 2vh + 3vmin);
 }
 
+/* ----------- ADD TOPICS END ----------- */
 
-.menu{
-    height: 7%;
-    width: 80%;
-    margin: 8px auto;
-    border: 2px solid white;
-    vertical-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+/* ------- REMOVE TOPIC --------- */
 
-.menu form{
-    margin: 5px;
-}
-
-.topic{
+.rem-topic-mid{
     width: 60%;
-    height: fit-content;
-    background-color: transparent;
-    margin: 50px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.topic form,h3{
-    background-color: transparent;
-}
-
-.topic button{
-    width: 400px;
-    height: 40px;
-    margin: 10px;
-    border: none;
-    border-radius: 30px;
-    color: #FEFFFF;
-    font-weight: 600;
-    font-size: 1.2em;
-}
-
-.rem-top{
-    display: flex;
-    flex-direction: row;
-}
-
-.topic-title{
-    border: 2px solid white;
-    width: 80%;
-    height: 7%;
-    margin-bottom: 7px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 10px auto;
-    display: flex;
-    flex-direction: row;
-}
-
-.topic-title h2{
-    font-size: 1.7em;
     background-color: transparent;
 }
 
-.topic-title form{
-    margin: auto;
+.rem-topiclist{
+    width: 80%;
+    background-color: transparent    ;
+    display: flex;
+    flex-direction: row;
+    margin: 10px auto;
+    align-items: center;
+    justify-content: center;
 }
+
+.rem-topiclist div{
+    margin: 5px;
+    width: 50%;
+    border-radius: 10px;
+    height: calc(1vw + 3vh + 1vmin);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rem-topiclist form{
+    background-color: transparent;
+}
+
+/* ---------- REMOVE TOPIC END --------- */
+
+/* --------- TOPICWISE LIST ------------- */
 
 .main table{
     border-collapse: collapse;
-    width: 85%;
+    max-width: 80%;
+    min-width: 600px;
+    overflow: scroll;
     margin: 10px auto;
     color: black;
 }
@@ -445,28 +477,30 @@ input::placeholder{
     border: 7px solid #2B7A78;
 }
 
+/* ----------- TOPICWISE LIST END ----------- */
+
 .addquestion{
     border-radius: 10px;
     width: 60%;
-    height: 250px;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     padding: 10px;
-    margin: 120px auto;
+    margin: 40px auto;
     background-color: transparent;
 }
 
 .addquestion input{
     margin: 10px;
     width: 70%;
-    height: 45px;
-    margin: auto;
+    height: calc(1vw + 1vh + 2vmin);
+    margin: 3% auto;
     background-color: white;
     border-radius: 10px;
     color: black;
     font-weight: 700;
     padding-left: 10px;
-    font-size: 1.2em;
+    font-size: calc(1vw + 1vh + 0.5vmin);
     outline: none;
 }
 
@@ -476,22 +510,32 @@ input::placeholder{
 }
 
 .addquestion button{
-    margin: auto;
+    width: calc(4vw + 2vh + 3vmin);
+    margin: 2% auto;
 }
 
-/* ------------home page------------ */
-.mid{
+/* ------------ USER HOME PAGE------------ */
+
+
+.userhome-mid{
+    width: 70%;
+    margin: 10px auto;
+    font-size: calc(1vw + 1.1vmin);
+    background-color: transparent;
     display: flex;
     flex-direction: row;
-    background-color: transparent;
-    height: 100%;
-    margin: 20px auto;
 }
 
 .left{
     width: 40%;
     background-color: transparent;
 }
+
+.right{
+    width: 40%;
+    background-color: transparent;
+}
+
 
 .potd{
     display: flex;
@@ -506,11 +550,219 @@ input::placeholder{
     text-decoration: none;
 }
 
-.right{
-    width: 40%;
+.welcome-user{
+    width: 90%;
+    height: calc(4vw + 1vh + 3vmin);
+    margin: 10px auto;
+    display: flex;
+    flex-direction: row;
     background-color: transparent;
 }
 
+.greet{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-left: 1%;
+    font-size: calc(2vw + 1vmin);
+    background-color: transparent;
+}
+
+.welcome-user form{
+    float: right;
+}
+
+.user-btns{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: transparent;
+}
+
+.user-btns form{
+    background-color: transparent;
+}
+
+.user-btns button{
+    font-size: calc(1vw + 0.7vmin);
+}
+
+.menu form{
+    margin: 5px;
+}
+
+.topic-title{
+    width: 80%;
+    height: 7%;
+    margin-bottom: 7px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: row;
+    background-color: transparent;
+}
+
+.topic-title form{
+    background-color: transparent;
+}
+
+.topic-manage{
+    display: flex;
+    background-color: transparent;
+}
+
+.topic-manage button{
+    width: 20%;
+    font-size: calc(10vw + 1.4vh + 1vmin);
+}
+
+.topic-title h2{
+    font-size: calc(1vw + 1.4vh + 1vmin);
+    background-color: transparent;
+}
+
+.topiclist{
+    width: 60%;
+    height: fit-content;
+    background-color: transparent;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.topiclist form,h3{
+    background-color: transparent;
+    width: 100%;
+}
+
+.topiclist button{
+    height: calc(1vw + 1vw + 2vmin);
+    margin: 10px;
+    border: none;
+    border-radius: 30px;
+    color: #FEFFFF;
+    font-weight: 600;
+    font-size: 1.2em;
+    background-color: #3AAFA9;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* ---------------USER HOME PAGE END--------------- */
 .neonText {
     text-shadow: 0 0 6px #3AAFA9, 0 0 13px #3AAFA9, 0 0 1px #3AAFA9, 0 0 27px #3AAFA9, 0 0 18px #3AAFA9, 0 0 7px #3AAFA9, 0 0 6px #0fa;
 }
+
+
+/* ----------------------------- RESPONSIVE ------------------------------- */
+
+@media only screen and (max-width: 1240px) {
+    .mid{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+    }
+    .common-home-left{
+        width: 50%;
+        margin: 4%;
+        background-color: transparent;
+        border-radius: 0px;
+        z-index: 0;
+    }
+    .common-home-left-inner{
+        color: #2B7A78;
+        border-radius: 0px;
+        border: 2px groove #47d5ce;
+    }
+    .about-it p{
+        text-align: center;
+    }
+    .common-home-right{
+        width: 50%;
+        margin: 4%;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .mid{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+    }
+    .common-home-left{
+        width: 80%;
+    }
+    .common-home-right{
+        width: 80%;
+    }
+    .local input{
+        height: 40px;
+        font-size: 1.1em;
+    }
+    .rem-topic-mid{
+        width: 100%;
+    }
+    .rem-topiclist{
+        width: 80%;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .mid{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+    }
+    .common-home-left{
+        width: 90%;
+    }
+    .common-home-right{
+        width: 90%;
+    }
+    .header h1{
+        margin-right: 5px;
+    }
+    .local input{
+        width: 90%;
+        height: 40px;
+        font-size: 1.1em;
+    }
+  }
+
+  @media only screen and (max-width: 300px) {
+    .mid{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.7rem;
+    }
+    .common-home-left{
+        width: 90%;
+    }
+    .common-home-right{
+        width: 90%;
+    }
+    .header h1{
+        margin-right: 5px;
+    }
+    .local input{
+        width: 90%;
+        height: 40px;
+        font-size: 1.1em;
+    }
+  }
+
+/* ------------------------------------------------------------------------ */

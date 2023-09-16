@@ -7,11 +7,13 @@
             <form action="/login" method="post" style="background-color: transparent;">
                 <div class="local" style="margin: 50px auto;">
                     <h2>Sign In</h2>
-                    <input type="email" name="username" placeholder="Email*">
+                    <input type="email" name="email" placeholder="Email*">
                     <input type="password" name="password" placeholder="Password*">
+                    <p class="flash" style="color: black;"><%= message %></p>
                     <button class="btn" type="submit">Log In</button>
                 </div>
             </form>
+            <a style="background-color: transparent; color: blue; margin: 10px auto;" href="/resetpassword">forget password?</a>
         </div>
     </div>
 </div>

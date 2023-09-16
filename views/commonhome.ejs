@@ -1,10 +1,10 @@
 <%- include("partials/header.ejs") %> 
 
 
-<div class="main" style="height: 900px">
-    <div class="mid" style="width: 96%; height:100%;">
+<div class="main">
+    <div class="mid" style="width: 96%;">
         <div class="common-home-left">
-            <div class="common-home-left" style="border-radius: 10% 100% 100% 10%; width: 70%; height: 70%; background-color: #2B7A78; margin: 18% auto">
+            <div class="common-home-left-inner">
                 <div class="logo-text">
                     <h1>DSA</h1>
                     <h2>organizer</h2>
@@ -15,10 +15,11 @@
         </div>
         <div class="common-home-right">
             <form action="/register" method="post" style="background-color: transparent;">
+                <p style="color:red; background-color: transparent;"><%= text%></p>
                 <div class="local">
                     <h2>Sign Up</h2>
                     <input type="text" name="name" placeholder="Name*" required>
-                    <input type="email" name="username" placeholder="Email*" required>
+                    <input type="email" name="email" placeholder="Email*" required>
                     <input type="password" name="password" placeholder="Password*" required>
                     <button class="btn" type="submit">Create your account</button>
                 </div>

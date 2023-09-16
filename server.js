@@ -1,3 +1,11 @@
+// ---------- INDEX ----------
+
+// 1. ALL IMPORTS
+// 2. MIDDLEWARES
+
+//---------------------------
+
+
 //-------------------- ALL IMPORTS ------------------------
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -9,6 +17,7 @@ const findorcreate = require("mongoose-findorcreate");
 const session = require("express-session");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const GitHubStrategy = require("passport-github2").Strategy;
+const flash = require("connect-flash");
 require("dotenv").config();
 //---------------------------------------------------------
 
@@ -24,6 +33,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static("public"));
 app.use(express.static("images"));
+app.use(flash());
 
 app.use(session({
     secret: "my secret",
@@ -56,7 +66,7 @@ const userSchema = new mongoose.Schema({
     data: [topicSchema]
 });
 
-userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(passportLocalMongoose, {usernameField: "email"});
 userSchema.plugin(findorcreate);
 
 const userModel = new mongoose.model("userModel", userSchema);
@@ -119,7 +129,8 @@ passport.use(new GitHubStrategy({
     callbackURL: "http://localhost:3000/auth/github/userhome"
   },
   function(accessToken, refreshToken, profile, done) {
-    userModel.findOrCreate({ name: profile.displayName, username: profile.username, githubid: profile.id }, function (err, user) {
+    userModel.findOrCreate({ name: profile.displayName, githubid: profile.id }, function (err, user) {
+    //   console.log(profile);
       return done(err, user);
     });
   }
@@ -144,49 +155,138 @@ app.get("/auth/github/userhome",
 //------------------ AUTHENTICATION ------------------------
 
 app.get("/auth/local", (req, res) => {
-    res.render("auth/login");
+    res.render("auth/login", {message: ""});
 });
 
+app.get("/register", (req, res) => {
+    res.render("commonhome", {
+        text: ""
+    });
+})
+
 app.post("/register",  (req, res)=>{
-    const name = req.body.name;
-    userModel.register({ username: req.body.username }, req.body.password, async (err, user)=>{
+    const name = _.lowerCase(req.body.name);
+    userModel.register({ email: req.body.email, name: name}, req.body.password, async (err, user)=>{
       if(err){
         console.log(err);
         res.redirect("/register");
       } 
       else{
-        await userModel.updateOne({username: user.username}, {name: name}).exec();
-        passport.authenticate("local")(req, res, () => {
-          res.redirect('/userhome');
+        passport.authenticate("local", {failureRedirect: "/"})(req, res, () => {
+            res.redirect("/userhome");
         })
       }
     })
 })
 
 app.get("/login", (req, res) => {
-    res.render("auth/login");
+    res.render("auth/login", { message: req.flash("info")});
 });
 
-app.post("/login", (req, res) => {
+app.post("/login", async (req, res) => {
     const user = new userModel({
-        email: req.body.username,
+        email: req.body.email,
         password: req.body.password
     })
-    req.login(user, function(err) {
+    req.login(user, async function(err) {
         if (err) { 
             console.log(err);
             res.redirect("/login");
         }else{
-            passport.authenticate("local")(req, res, () => {
-                res.redirect('/userhome');
-            });
+            const curUser = await userModel.findOne({email: user.email});
+            if(!curUser){
+                req.flash("info", "Email not registered");
+                res.render("auth/login", {message: req.flash("info")});
+            }
+            else{
+                passport.authenticate("local", {failureFlash: req.flash("info", "Invalid username or password"), failureRedirect: "/login"})(req, res, ()=>{
+                    res.redirect("/userhome");
+                });
+            }
         }
     });
 });
 
+app.get("/resetpassword", (req, res) => {
+    res.render("auth/resetpassword",{
+        message: req.flash("info")
+    });
+});
+
+app.post("/reset", async (req,res) => {
+    const curUsername = req.body.username;
+    const pass = req.body.password;
+    const cPass = req.body.confirmpassword;
+    const curUser = await userModel.findOne({email: curUsername}).exec();
+    if(curUser){
+        if(cPass != pass){
+            res.render("auth/resetpassword",{
+                message: "password doesnot match"
+            })
+        }
+        else{
+            curUser.setPassword(req.body.newpassword,(err, u) => {
+                if (err){
+                    console.log(err);
+                }
+                curUser.save();
+                req.flash("info", "Reset done.");
+                res.redirect("/login");  
+            });
+            }
+    }
+    else{
+        req.flash("info", "email not registered")
+        res.render("auth/resetpassword", {message: req.flash("info")});
+    }
+});
+
+app.post("/changepassword", async (req, res) => {
+    if(req.isAuthenticated()){
+        const curUser = await userModel.findById(req.user.id).exec();
+        if(curUser.googleid || curUser.githubid){
+            req.flash("info", "You are authenticated by google or github");
+            res.redirect("/");
+        }
+        else{
+            res.render("auth/changepassword", { message: req.flash("info") });
+        }
+    }
+    else{
+        res.redirect("/login");
+    }
+});
+
+app.post("/change", async (req, res) => {
+    if(req.isAuthenticated()){
+        await userModel.findById(req.user.id)
+        .then((u) => {
+            const curEmail = req.body.username;
+            if(u.email != curEmail){
+                req.flash("info", "Enter correct email");
+                res.render("auth/changepassword", {message: req.flash("info")})
+            }else{
+            u.setPassword(req.body.newpassword,(err, u) => {
+                if (err){
+                    console.log(err);
+                }
+                u.save();
+                req.flash("info", "password changed successfully");
+                res.redirect("/userhome");  
+            });
+            }
+        })
+    }
+    else{
+        res.redirect("/login");
+    }
+})
+
 app.post("/logout", (req, res) => {
     req.logout(function(err) {
-        if (err) { return next(err); }
+        if (err) { 
+            console.log(err);
+         }
         res.redirect("/");
     });
 })
@@ -200,11 +300,13 @@ app.post("/logout", (req, res) => {
 //----------------- HOME ROUTES ---------------------------
 app.get("/", async (req, res)=>{
     if(req.isAuthenticated()){
-        const curUser = await userModel.findById(req.user.id).exec();
         res.redirect("/userhome");
     }
     else{
-        res.render("commonhome");
+        res.render("commonhome",{
+            text: "",
+            message: req.flash("info")
+        });
     }
 });
 
@@ -213,7 +315,8 @@ app.get("/userhome", async (req, res)=>{
         const curUser = await userModel.findById(req.user.id).exec();
         res.render("userhome", {
             nameOfUser: curUser.name,
-            topics: curUser.data
+            topics: curUser.data,
+            message: req.flash("info")
         })
     }else{
         res.redirect("/login");
@@ -290,7 +393,9 @@ app.post("/remove", async (req, res) => {
 
 app.get("/topicwiselist/:list", async (req, res) => {
     if(req.isAuthenticated()){
+        // console.log(list);
         var x = req.params.list;
+        x.trim();
         const curUser = await userModel.findById(req.user.id).exec();
         const topicArray = curUser.data;
         for(i = 0; i < topicArray.length; i++){

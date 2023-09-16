@@ -1,33 +1,43 @@
-<%- include("partials/header.ejs") %> 
+<%- include("partials/header.ejs") %>
 
 
 <div class="main">
-    <form action="/logout" method="post" style="position: absolute; right: 0; top: 0; margin: 18px; background-color: transparent;">
-        <button class="btn">Log Out</button>
-    </form>
-    <div class="menu topic-title">
-        <form action="/addtopic" method="get">
-            <button class="btn">ADD</button>
-        </form>
-        <h2><%= _.capitalize(nameOfUser) %>'s TOPIC NAMES</h2>
-        <form action="/removetopic" method="get">
-            <button class="btn">REMOVE</button>
-        </form>
+    <div class="welcome-user">
+        <div class="greet">Welcome <%= _.capitalize(nameOfUser) %></div>
+        <div class="user-btns">
+            <form action="/changepassword" method="post">
+                <button class="btn">change password</button>
+            </form>
+            <form action="/logout" method="post">
+                <button class="btn">Log Out</button>
+            </form>
+        </div>
     </div>
-    <div class="mid">
+    <div class="topic-title">
+        <h2>Topic names</h2>
+    </div>
+    <div class="userhome-mid">
+        <div class="flash" style="left: 40%;">
+            <%= message %>
+        </div>
         <div class="left"></div>
-        <div class="topic">
+        <div class="topiclist">
+            <div class="topic-manage">
+                <form action="/addtopic" method="get">
+                    <button class="btn">Add</button>
+                </form>
+                <form action="/removetopic" method="get">
+                    <button class="btn">Remove</button>
+                </form>
+            </div>
             <% topics.forEach(function(item){ %>
-
-                <h3>
                     <form action="/topicwiselist/<%= (item.topicname) %>" method="get">
-                        <button style="background-color: #3AAFA9;"><%= _.capitalize(item.topicname) %> (<%= item.content.length%>)</button>
+                        <button class"><%= _.capitalize(item.topicname) %> (<%= item.content.length%>)</button>
                     </form>
-                </h3>   
-
             <% }); %>
         </div>
-        <div class="right"></div>
+        <div class="right">
+        </div>
     </div>
     <div class="resources"></div>
 </div>
