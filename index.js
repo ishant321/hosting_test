@@ -27,6 +27,7 @@ require("dotenv").config();
 var app = express();
 app.locals._ = _;
 
+app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static("public"));
